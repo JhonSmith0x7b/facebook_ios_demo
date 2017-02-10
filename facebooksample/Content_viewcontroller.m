@@ -44,8 +44,9 @@
     [alert_c addAction:cancle];
     [self presentViewController:alert_c animated:YES completion:nil];
 }
-
+//facebook game request
 - (IBAction)facebook_game_request:(id)sender {
+    //https://developers.facebook.com/docs/games/services/gamerequests
     FBSDKGameRequestContent *gameRequestContent = [[FBSDKGameRequestContent alloc] init];
     // Look at FBSDKGameRequestContent for futher optional properties
     gameRequestContent.message = @"facebook game request msg";
@@ -69,7 +70,10 @@
     [self show_alertview_with_title:@"game request" msg:@"user cancel"];
 }
 //
+//facebook app inivte
 - (IBAction)facebook_app_invite:(id)sender {
+    //https://developers.facebook.com/docs/app-invites/ios
+    //facebook app link 托管平台 https://developers.facebook.com/quickstarts/?platform=app-links-host
     NSString *url = @"https://fb.me/598118950379650";
     NSString *image_url = @"http://cdn.akamai.steamstatic.com/steam/apps/324160/header.jpg?t=1481497442";
     FBSDKAppInviteContent *content = [[FBSDKAppInviteContent alloc] init];
@@ -115,6 +119,7 @@
 }
 //
 - (IBAction)facebook_object_share:(id)sender {
+    //https://developers.facebook.com/docs/sharing/ios
     NSDictionary *properties = @{
                                  @"og:type": @"fitness.course",
                                  @"og:title": @"Sample Course",
@@ -139,6 +144,7 @@
 }
     
 - (IBAction)facebook_screenshot_share:(id)sender {
+    //https://developers.facebook.com/docs/sharing/ios
     FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
     photo.image = [self screenshot:self.view];
     FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
@@ -155,8 +161,10 @@
     UIGraphicsEndImageContext();
     return image;
 }
-    
+
+// facebook get friends via graph api
 - (IBAction)facebook_inapp_friends:(id)sender {
+    //https://developers.facebook.com/docs/graph-api/reference/user/friends
     NSDictionary *params = @{
                              @"fields":@"id,name,picture"
                              };
@@ -198,6 +206,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //facebook game request https://developers.facebook.com/docs/games/services/gamerequests
     Facebook_friend *ff = [_fb_friends_array objectAtIndex:(int)indexPath.item];
     FBSDKGameRequestContent *content = [[FBSDKGameRequestContent alloc] init];
     content.message = @"game request message";

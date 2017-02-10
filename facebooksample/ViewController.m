@@ -27,10 +27,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+//facebook login
 - (IBAction)onclick_facebook_login:(id)sender {
     NSLog(@"do facebook login");
-    FBSDKLoginManager *login_manager = [[FBSDKLoginManager alloc] init];
+    FBSDKLoginManager *login_manager = [[FBSDKLoginManager alloc] init];    //https://developers.facebook.com/docs/reference/ios/current/class/FBSDKLoginManager/
     [login_manager logInWithReadPermissions:@[@"public_profile", @"user_friends"]
                          fromViewController:self
                                     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
